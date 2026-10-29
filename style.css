@@ -135,7 +135,23 @@ main > section { max-width: 1160px; margin: 0 auto; padding: 88px 16px; }
 #news { background: linear-gradient(180deg, #1a1b20, var(--panel)); border: 1px solid var(--line); border-top: 2px solid var(--gold); border-radius: 3px; padding: 22px 26px; }
 #news h3 { margin: 0; }
 #news ul { margin: 12px 0 0; padding-left: 1.2em; }
-#news li::marker { color: var(--ether); }
+#news li::marker, .pn li::marker { color: var(--ether); }
+.pn-sec { margin: 16px 0 0; font: 600 .8rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.pn-sec + ul { margin-top: 6px; }
+
+/* Patch notes: one folded panel per older release */
+#patch-notes { display: grid; gap: 10px; }
+.pn { background: var(--panel); border: 1px solid var(--line); border-radius: 3px; padding: 0 22px; transition: border-color .2s; }
+.pn[open] { border-color: var(--gold); padding-bottom: 18px; }
+.pn summary { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 0; cursor: pointer; list-style: none; }
+.pn summary::-webkit-details-marker { display: none; }
+.pn summary::after { content: "+"; color: var(--ether); font-size: 1.3rem; line-height: 1; transition: transform .2s; }
+.pn[open] summary::after { transform: rotate(45deg); }
+.pn summary:hover .pn-ver, .pn summary:focus-visible .pn-ver { color: var(--gold-hi); }
+.pn-ver { font: 1.15rem var(--serif); color: var(--text); flex: 1; }
+.pn-date { color: var(--dim); font-size: .9rem; }
+.pn .note { margin-top: 0; }
+.pn ul { margin: 6px 0 0; padding-left: 1.2em; }
 
 footer { text-align: center; color: var(--dim); font-size: .9rem; padding: 32px 16px 80px; border-top: 1px solid var(--line); }
 

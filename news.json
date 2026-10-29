@@ -1,11 +1,73 @@
-{
-  "version": "0.1.0",
-  "date": "2026-10-21",
-  "title": "First friends' playtest",
-  "notes": [
-    "The full early game: the opening and tutorial, seven quests from Awakening to Dead Stock.",
-    "Old Greymaw and his chest, Cargo Bay 3, fishing, gathering, crafting and the shop.",
-    "Gear shows on you and on other players. Chat with everyone on the server.",
-    "Clear messages when the server can't be reached or a name is taken."
-  ]
-}
+﻿[
+    {
+        "version":  "0.2.1",
+        "date":  "2026-10-28",
+        "title":  "A much smaller, faster download.",
+        "sections":  [
+                         {
+                             "name":  "Changed",
+                             "items":  [
+                                           "The game is about 40% smaller to download (257 MB instead of 442 MB) and takes half the disk space.",
+                                           "The launcher downloads several pieces at once, and later updates only fetch the parts of the game that changed."
+                                       ]
+                         }
+                     ]
+    },
+    {
+        "version":  "0.2.0",
+        "date":  "2026-10-28",
+        "title":  "The polish update: smoother menus and controls, a busier market, and your character is now locked with a password.",
+        "sections":  [
+                         {
+                             "name":  "Added",
+                             "items":  [
+                                           "The launcher installs and updates the game by itself. Paste the invite code from the host once; after that it downloads only what changed and updates itself too.",
+                                           "Each character has its own password. Older characters set one on their next login.",
+                                           "The Tally is easier to use, with item categories. Other survivors trade there too, so what you put up actually sells.",
+                                           "Names and titles above players\u0027 heads (rare titles glow); they fade with distance and hide in a fight.",
+                                           "Weapons on 1 and 2, sheathe with X, with a smooth swap. Snappier menus and inventory.",
+                                           "An Offhand slot: shields can be unequipped.",
+                                           "The tutorial drill can be skipped and shows a timing ring.",
+                                           "Your progress autosaves every few minutes."
+                                       ]
+                         },
+                         {
+                             "name":  "Changed",
+                             "items":  [
+                                           "The furnace is quieter, and the Cargo Bay entrance no longer blinds you.",
+                                           "The bronze armour matches again (no neck guard, a matching helmet).",
+                                           "The server checks where you are: gathering, crafting, trading and fighting only work where you stand."
+                                       ]
+                         },
+                         {
+                             "name":  "Known issues",
+                             "items":  [
+                                           "The launcher is unsigned, so Windows SmartScreen asks once (\"More info\", \"Run anyway\")."
+                                       ]
+                         }
+                     ]
+    },
+    {
+        "version":  "0.1.0",
+        "date":  "2026-10-21",
+        "title":  "First friends\u0027 playtest: everyone plays together on the host\u0027s server.",
+        "sections":  [
+                         {
+                             "name":  "Added",
+                             "items":  [
+                                           "One zip to play: unzip, double-click ProjectPod.exe, type a name and click Join Server on the new main menu. The host\u0027s address and password come pre-filled; Change on the menu when they change. No Git, Unity or Java needed.",
+                                           "Unity 6.6 client with the full early game: the opening and tutorial, all seven quests (Awakening to The Manifest), Old Greymaw and his chest, Cargo Bay 3, fishing, gathering, crafting, the shop, gear shown on you and other players, chat.",
+                                           "Clear messages when the server can\u0027t be reached, the password is wrong or the name is taken."
+                                       ]
+                         },
+                         {
+                             "name":  "Known issues",
+                             "items":  [
+                                           "Dropped items show a marker instead of the item\u0027s model.",
+                                           "The game is unsigned, so Windows SmartScreen asks once (\"More info\", \"Run anyway\").",
+                                           "If the connection drops, restart the game to reconnect."
+                                       ]
+                         }
+                     ]
+    }
+]

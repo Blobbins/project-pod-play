@@ -1,17 +1,27 @@
 // Project Pod site: news, scroll reveals, Ether particles, lightbox, ambient toggle. No dependencies.
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// news.json is rewritten by the publish step; the page keeps working without it.
-fetch('news.json').then(r => r.json()).then(n => {
-  const box = document.getElementById('news');
-  const h = document.createElement('h3');
-  h.textContent = `Version ${n.version} · ${n.title}`;
-  const d = document.createElement('p'); d.className = 'note'; d.textContent = n.date;
-  const ul = document.createElement('ul');
-  for (const t of n.notes) { const li = document.createElement('li'); li.textContent = t; ul.append(li); }
-  box.replaceChildren(h, d, ul);
+// news.json (every release, newest first) is written from CHANGELOG.md by the publish step; the page keeps working without it.
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
+const notes = r => [].concat(r.sections || []).flatMap(s => {
+  const ul = el('ul');
+  for (const t of [].concat(s.items || [])) ul.append(el('li', '', t)); // PowerShell writes a one-item list as a string
+  return [el('h4', 'pn-sec', s.name), ul];
+});
+fetch('news.json').then(r => r.json()).then(all => {
+  const rs = [].concat(all), [n, ...older] = rs;
+  document.getElementById('news').replaceChildren(
+    el('h3', '', `Version ${n.version}`), el('p', 'note', `${n.date}  ·  ${n.title}`), ...notes(n));
   const v = document.getElementById('version-line');
   v.textContent = `Latest: version ${n.version}`; v.hidden = false;
+  const box = document.getElementById('patch-notes');
+  for (const r of older) {
+    const d = el('details', 'pn'), s = el('summary');
+    s.append(el('span', 'pn-ver', `Version ${r.version}`), el('span', 'pn-date', r.date));
+    d.append(s, el('p', 'note', r.title), ...notes(r));
+    box.append(d);
+  }
+  box.closest('section').hidden = older.length === 0;
 }).catch(() => {});
 
 // Sections rise in once as they scroll into view.
