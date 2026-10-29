@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Pod</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="A colony ark crashed. Build the camp, hunt what the Ether changed, and chase the loot. A friends-only MMO-lite playtest for Windows.">
+<meta name="theme-color" content="#0d0e11">
+<!-- shortcut: og:url/og:image assume the Pages URL below; change both if the site lands elsewhere (Discord needs absolute URLs). -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Project Pod">
+<meta property="og:title" content="Project Pod">
+<meta property="og:description" content="A colony ark crashed. Build the camp, hunt what the Ether changed, and chase the loot. Friends-only playtest, Windows 10/11.">
+<meta property="og:url" content="https://blobbins.github.io/project-pod-play/">
+<meta property="og:image" content="https://blobbins.github.io/project-pod-play/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- The game's UiStyle uses Georgia (headings) and Bahnschrift (body); Gelasio and Barlow are their closest Google Fonts. -->
+<link href="https://fonts.googleapis.com/css2?family=Gelasio:wght@500;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#download">Skip to download</a>
+
+<header class="hero">
+  <div class="hero-art"><img src="img/hero.webp" alt="" fetchpriority="high"></div>
+  <canvas id="ether" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Friends-only playtest</p>
+    <h1>Project Pod</h1>
+    <p class="pitch">The ark came down hard. Build the camp, hunt what the Ether changed, and earn your place on a planet that wants you gone.</p>
+    <a class="btn btn-ghost" href="#download">Get the game</a>
+  </div>
+  <a class="scroll-cue" href="#download" aria-label="Scroll to download"></a>
+</header>
+
+<button id="sound" class="sound" type="button" aria-pressed="false" aria-label="Play ambient music">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="waves" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="cross" d="M16.5 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+</button>
+
+<main>
+  <section id="download" class="download reveal">
+    <h2>Download</h2>
+    <a class="btn btn-gold" href="https://github.com/Blobbins/project-pod-play/releases/latest/download/ProjectPodLauncher.exe">Download for Windows</a>
+    <p class="note">Small launcher; it fetches the game on first run. Windows 10/11.</p>
+    <p class="note" id="version-line" hidden></p>
+  </section>
+
+  <section class="how" id="how">
+    <h2 class="reveal">How to play</h2>
+    <ol class="steps">
+      <li class="reveal"><span>1</span><h3>Download</h3><p>Grab the launcher with the button above.</p></li>
+      <li class="reveal"><span>2</span><h3>Run it</h3><p>Open the launcher you downloaded. It sets up the game for you.</p></li>
+      <li class="reveal"><span>3</span><h3>Paste your invite</h3><p>Paste the invite code your host sent you.</p></li>
+      <li class="reveal"><span>4</span><h3>Play</h3><p>Pick a name, press Play, and wake up in the infirmary.</p></li>
+    </ol>
+    <div class="callout reveal">
+      <strong>Windows says "Windows protected your PC"?</strong>
+      The launcher isn't code-signed (it's a hobby project), so SmartScreen asks once. Click <b>More info</b>, then <b>Run anyway</b>.
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="reveal">What you'll do</h2>
+    <div class="grid">
+      <article class="tile reveal"><button class="shot" type="button"><img src="img/combat.webp" alt="Ether-glowing Old Greymaw and his wolves in the camp" loading="lazy" width="960" height="540"></button>
+        <h3>Action combat</h3><p>Light and heavy swings, blocks and dodges on a stamina bar. Time a perfect block or dodge and the fight turns.</p></article>
+      <article class="tile reveal"><button class="shot" type="button"><img src="img/gathering.webp" alt="A survivor working in the camp among racks and tents" loading="lazy" width="960" height="540"></button>
+        <h3>Gather and craft</h3><p>Chop, mine, fish and cook, then smith your own bronze. Skills level the old-school way, with perks every five levels.</p></article>
+      <article class="tile reveal"><button class="shot" type="button"><img src="img/tally.webp" alt="The Tally board building at dusk" loading="lazy" width="960" height="540"></button>
+        <h3>The Tally</h3><p>A player-run order board: post what you need, fill what others want. Or sell to the Stores, and pay into camp projects that visibly upgrade the town.</p></article>
+      <article class="tile reveal"><button class="shot" type="button"><img src="img/cargo.webp" alt="The dark, wrecked deck of Cargo Bay 3" loading="lazy" width="960" height="540"></button>
+        <h3>Cargo Bay 3</h3><p>A wrecked hold of the ark. Reach Standing 10 to get in, then find out why nobody there survived.</p></article>
+      <article class="tile reveal"><button class="shot" type="button"><img src="img/standing.webp" alt="The skills screen" loading="lazy" width="960" height="540"></button>
+        <h3>Standing and titles</h3><p>Everything you do earns Standing, from 1 to 100. It opens new places, unlocks perks and lets you wear the titles you've earned.</p></article>
+      <article class="tile reveal"><button class="shot" type="button"><img src="img/quests.webp" alt="The camp infirmary with the quest tracker open" loading="lazy" width="960" height="540"></button>
+        <h3>Seven quests</h3><p>From waking in the infirmary to Old Greymaw and Dead Stock.</p></article>
+    </div>
+  </section>
+
+  <section class="threat" aria-labelledby="threat-h">
+    <img class="threat-bg" src="img/threat.webp" alt="" loading="lazy">
+    <div class="threat-inner reveal">
+      <p class="eyebrow warn">Threat sighted</p>
+      <h2 id="threat-h">Old Greymaw</h2>
+      <p class="threat-lede">The old wolf who leads the pack was the first thing the Ether changed. Crystals split his hide, and his wolves follow him into the camp.</p>
+      <ul class="threat-tags">
+        <li>First of the changed</li>
+        <li>Leads the wolf pack</li>
+        <li>Enrages when wounded</li>
+      </ul>
+      <p class="threat-tip">Watch the pounce. Dodge it, then punish.</p>
+    </div>
+  </section>
+
+  <section class="lore">
+    <img class="reveal" src="img/lore.webp" alt="A cracked ark locker glowing cyan in the dark" loading="lazy" width="960" height="540">
+    <div class="reveal">
+      <h2>The world</h2>
+      <p>A year ago the colony ark came down in pieces. The survivors who crawled out of the pods built a palisade, a forge and an infirmary, and called it a camp.</p>
+      <p>The ark's power source, the cyan Ether, spilled into the ground. Things that drink it don't stay what they were. Old Greymaw was only the first.</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <h2 class="reveal">Screenshots</h2>
+    <div class="thumbs">
+      <button class="shot reveal" type="button"><img src="img/g1.webp" alt="A survivor by the campfire inside the palisade" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g2.webp" alt="The town square under a grey sky" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g3.webp" alt="The camp graveyard" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g4.webp" alt="Old Greymaw stalking through the camp" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g5.webp" alt="The lamp row and watchtower" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g6.webp" alt="Ether crystals around a locker in Cargo Bay 3" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g7.webp" alt="The town from above in the fog" loading="lazy" width="1280" height="720"></button>
+      <button class="shot reveal" type="button"><img src="img/g8.webp" alt="A cooking fire on a tripod" loading="lazy" width="1280" height="720"></button>
+    </div>
+  </section>
+
+  <section class="news reveal" aria-labelledby="news-h">
+    <h2 id="news-h">What's new</h2>
+    <div id="news"><p class="note">See the latest release notes on the download page.</p></div>
+  </section>
+</main>
+
+<footer>Friends-only playtest. Please don't share the link.</footer>
+
+<dialog id="lightbox" aria-label="Screenshot viewer">
+  <img alt="">
+  <button class="lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="lb-prev" type="button" aria-label="Previous screenshot">&#8249;</button>
+  <button class="lb-next" type="button" aria-label="Next screenshot">&#8250;</button>
+</dialog>
+
+<script src="app.js" defer></script>
+</body>
+</html>
