@@ -24,6 +24,25 @@ fetch('news.json').then(r => r.json()).then(all => {
   box.closest('section').hidden = older.length === 0;
 }).catch(() => {});
 
+// Download counter: GitHub counts each release asset. The website links ProjectPodSetup.exe (self-updates fetch ProjectPodLauncher.exe),
+// and v0.2.0's launcher only ever came from the website. Cached 10 min: the API allows 60 calls an hour per visitor.
+(async () => {
+  const KEY = 'pod-downloads', box = document.getElementById('dl-count');
+  let n;
+  try { const c = JSON.parse(sessionStorage.getItem(KEY)); if (c && Date.now() - c.t < 600000) n = c.n; } catch (e) {}
+  if (n === undefined) {
+    try {
+      const r = await fetch('https://api.github.com/repos/Blobbins/project-pod-play/releases?per_page=100');
+      if (!r.ok) return;
+      n = (await r.json()).flatMap(rel => rel.assets.filter(a => a.name === 'ProjectPodSetup.exe'
+        || (rel.tag_name === 'v0.2.0' && a.name === 'ProjectPodLauncher.exe'))).reduce((s, a) => s + a.download_count, 0);
+      try { sessionStorage.setItem(KEY, JSON.stringify({ n, t: Date.now() })); } catch (e) {}
+    } catch (e) { return; }
+  }
+  box.replaceChildren(el('strong', '', n.toLocaleString()), document.createTextNode(n === 1 ? ' download' : ' downloads'));
+  box.hidden = false;
+})();
+
 // Sections rise in once as they scroll into view.
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }

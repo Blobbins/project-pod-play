@@ -70,6 +70,8 @@ main > section { max-width: 1160px; margin: 0 auto; padding: 88px 16px; }
 .note { color: var(--dim); font-size: .95rem; margin: .7em 0 0; }
 .download { text-align: center; padding-top: 24px !important; }
 .download .btn { margin-top: .5em; }
+.dl-count { margin: 1.1em 0 0; color: var(--dim); font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; }
+.dl-count strong { color: var(--ether); font: 1.5rem var(--serif); letter-spacing: 0; margin-right: .35em; text-shadow: 0 0 14px rgba(110,231,242,.45); vertical-align: -.1em; }
 
 .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .steps li { position: relative; background: linear-gradient(180deg, #1a1b20, var(--panel)); border: 1px solid var(--line); border-radius: 3px; padding: 22px; }
